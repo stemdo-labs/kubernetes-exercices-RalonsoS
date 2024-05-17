@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: colors-service
+  namespace: ralonso
+spec:
+  type: ClusterIP
+  selector:
+    app: coloread
+  ports:
+  - protocol: TCP
+    port: 8080
+    targetPort: 8080
