@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: demogat-yaml
+  namespace: e12
+  labels:
+    entorno: prod
+spec:
+  replicas: 10
+  strategy:
+    type: Recreate
+  selector:
+    matchLabels:
+      app: gato
+  template:
+    metadata:
+      labels:
+        app: gato
+    spec:
+      containers:
+      - name: tomcat
+        image: tomcat:10.1
